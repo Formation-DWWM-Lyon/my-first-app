@@ -1,12 +1,23 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import data from '../data';
+import { articles, categories } from '../data';
 
 const Sidebar = () =>
   <aside>
+    <h2>Articles</h2>
     <ListGroup>
-      {data.map( (item, index) =>
-        <ListGroup.Item key={`article-link${index}`}>{item.title}</ListGroup.Item>
+      {articles.map( (item, index) =>
+        <ListGroup.Item key={`article-link${index}`}>
+          {item.title}
+        </ListGroup.Item>
+      )}
+    </ListGroup>
+    <h2>Catégories</h2>
+    <ListGroup>
+      {categories.map( (item, index) =>
+        <ListGroup.Item key={`category-link${index}`}>
+          {item.name}
+        </ListGroup.Item>
       )}
     </ListGroup>
   </aside>
