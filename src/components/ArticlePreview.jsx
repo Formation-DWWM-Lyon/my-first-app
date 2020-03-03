@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { cropText } from '../utils';
-import { Link } from 'react-router-dom';
 
 const ArticlePreview = (props) =>
   <Card>
