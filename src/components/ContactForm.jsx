@@ -7,14 +7,9 @@ class ContactForm extends Component {
     message: '',
   };
 
-  handleEmailChange = (event) => {
-    const email = event.target.value;
-    this.setState({ email });
-  }
-
-  handleMessageChange = (event) => {
-    const message = event.target.value;
-    this.setState({ message });
+  handleChange = (propName) => (event) => {
+    const newValue = event.target.value;
+    this.setState({ [propName]: newValue });
   }
 
   handleFormSubmit = (event) => {
@@ -29,7 +24,7 @@ class ContactForm extends Component {
       <Form onSubmit={this.handleFormSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} value={email} />
+          <Form.Control type="email" placeholder="Enter email" onChange={this.handleChange('email')} value={email} />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -37,7 +32,7 @@ class ContactForm extends Component {
     
         <Form.Group controlId="exampleForm.ControlTextarea1">
           <Form.Label>Message</Form.Label>
-          <Form.Control as="textarea" rows="3" onChange={this.handleMessageChange} value={message} />
+          <Form.Control as="textarea" rows="3" onChange={this.handleChange('message')} value={message} />
         </Form.Group>
         <Button variant="primary" type="submit">
           Submit
