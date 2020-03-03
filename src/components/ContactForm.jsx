@@ -17,11 +17,16 @@ class ContactForm extends Component {
     this.setState({ message });
   }
 
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  }
+
   render = () => {
     const { email, message } = this.state;
 
     return (
-      <Form>
+      <Form onSubmit={this.handleFormSubmit}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" onChange={this.handleEmailChange} value={email} />
