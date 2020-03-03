@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import exact from 'prop-types-exact';
 import { ArticlePreview } from '.';
 
 const ArticleList = (props) =>
@@ -12,5 +14,9 @@ const ArticleList = (props) =>
     )}
   </section>
 ;
+
+ArticleList.propTypes = exact({
+  articles: PropTypes.array.isRequired,
+});
 
 export default ArticleList;
